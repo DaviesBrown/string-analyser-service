@@ -48,6 +48,8 @@ PORT=8080 npm start
 
 ## Running Locally
 
+### Option 1: Run with Node.js
+
 Start the server:
 ```bash
 npm start
@@ -58,6 +60,39 @@ The API will be available at `http://localhost:3000`
 You should see:
 ```
 String Analysis API running on port 3000
+```
+
+### Option 2: Run with Docker
+
+**Build the Docker image:**
+```bash
+docker build -t string-analyser-service .
+```
+
+**Run the container:**
+```bash
+docker run -p 3000:3000 string-analyser-service
+```
+
+**Run with custom port:**
+```bash
+docker run -p 8080:8080 -e PORT=8080 string-analyser-service
+```
+
+**Run in detached mode:**
+```bash
+docker run -d -p 3000:3000 --name string-analyser string-analyser-service
+```
+
+**View logs:**
+```bash
+docker logs string-analyser
+```
+
+**Stop the container:**
+```bash
+docker stop string-analyser
+docker rm string-analyser
 ```
 
 ## Project Structure
